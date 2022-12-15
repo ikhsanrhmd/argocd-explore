@@ -1,18 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: san
   labels:
-    app: nginx
-  name: nginx
+    run: nginx
+  name: nginx-deploy-main
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      run: nginx-main
   template:
     metadata:
       labels:
-        app: nginx
+        run: nginx-main
     spec:
       containers:
       - image: nginx
